@@ -5,7 +5,16 @@
     	<select id="selectAll" resultClass="com.hb.ex04.model.entity.GuestVo">
     		SELECT * FROM GUEST03
     	</select>
+    	<select id="selectOne" parameterClass="int" resultClass="com.hb.ex04.model.entity.GuestVo">
+    		SELECT * FROM GUEST03 WHERE SABUN=#value#
+    	</select>
     	<insert id="insertOne" parameterClass="com.hb.ex04.model.entity.GuestVo">
     		INSERT INTO GUEST03 VALUES(#sabun#,#name#,NOW(),#pay#)
     	</insert>
+    	<update id="updateOne" parameterClass="com.hb.ex04.model.entity.GuestVo">
+    		UPDATE GUEST03 SET NAME=#name#,PAY=#pay# WHERE SABUN=#sabun#
+    	</update>
+    	<delete id="deleteOne" parameterClass="int">
+    		DELETE FROM GUEST03 WHERE SABUN=#value#
+    	</delete>
     </sqlMap>

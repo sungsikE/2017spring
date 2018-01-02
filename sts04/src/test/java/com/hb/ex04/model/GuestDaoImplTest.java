@@ -25,5 +25,9 @@ public class GuestDaoImplTest {
 		assertNotNull("db수행결과 못받음",guestDao.selectAll());
 		assertTrue("타입이 다름",guestDao.selectAll() instanceof List);
 	}
-
+	@Test
+	public void testSelectOne() throws Exception{
+		assertNotNull(guestDao.selectOne(1111));
+		assertEquals(new GuestVo(1111, "test01", null, 1000), guestDao.selectOne(1111));
+	}
 }

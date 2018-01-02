@@ -1,5 +1,6 @@
 package com.hb.ex04.model;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.hb.ex04.model.entity.GuestVo;
@@ -18,5 +19,18 @@ public class GuestDaoImpl implements GuestDao {
 	@Override
 	public void insertOne(GuestVo bean) throws Exception {
 		sqlMapClient.insert("insertOne",bean);
+	}
+	@Override
+	public GuestVo selectOne(int sabun) throws Exception {	
+		return (GuestVo)sqlMapClient.queryForObject("selectOne",sabun);
+	}
+	@Override
+	public int updateOne(GuestVo bean) throws SQLException {
+		return sqlMapClient.update("updateOne", bean);
+	}
+	@Override
+	public int deleteOne(int sabun) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlMapClient.delete("deleteOne",sabun);
 	}
 }
